@@ -8,7 +8,7 @@ document.head.appendChild(script);
 
 */
 
-<script>
+<script type="application/json">
 /* Create a function for when a user submits for the signature form. */
 console.log(OB3LISK);
 // When the "Save Signature" button gets clicked.
