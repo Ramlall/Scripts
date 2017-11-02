@@ -2,13 +2,12 @@
 /* Ctrl + Shift + J on the Chrome Page -> Console tab
 var script = document.createElement('script');
 script.type = 'application/javascript';
-script.src = 'https://github.com/Ramlall/Scripts/blob/master/SignatureScript.js';
+script.src = 'https://raw.githubusercontent.com/Ramlall/Scripts/master/SignatureScript.js';
 document.head.appendChild(script);
 
 
 */
 
-<script type="application/json">
 /* Create a function for when a user submits for the signature form. */
 console.log(OB3LISK);
 // When the "Save Signature" button gets clicked.
@@ -18,4 +17,3 @@ $("form [name=vbform]").on("submit", function(event)
 	event.preventDefault();
 	console.log("Sup mofo.");
 	});
-</script>
