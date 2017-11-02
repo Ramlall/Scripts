@@ -9,7 +9,7 @@ document.head.appendChild(script);
 */
 
 /* Create a function for when a user submits for the signature form. */
-console.log(OB3LISK);
+console.log("OB3LISK successfully loaded the signature script.");
 // When the "Save Signature" button gets clicked.
 $("form [name=vbform]").on("submit", function(event)
 	{
