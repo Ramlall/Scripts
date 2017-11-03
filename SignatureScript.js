@@ -64,8 +64,6 @@ function CheckImage(imageurl)
 	// Get the dimensions of this image url.
 	
 	var img = new Image();
-
-	var badimage = false;
 	
 	img.onload = function()
 		{
