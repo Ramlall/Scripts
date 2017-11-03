@@ -17,7 +17,7 @@ $("[name=vbform]").on("submit", function(event)
 	event.preventDefault();
 	
 	// Get the text for the signature being submitted into a string variable.
-	var sigtext = $(this).find("cke_contents_vB_Editor_001_editor").val();
+	var sigtext = $(this).find("#cke_contents_vB_Editor_001_editor").val();
 	console.log(sigtext);
 	
 	// Search that string for any images being rendered.
