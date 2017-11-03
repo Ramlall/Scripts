@@ -18,7 +18,7 @@ $("[name=vbform]").on("submit", function(event)
 	
 	// Get the text for the signature being submitted into a string variable.
 	var sigtext = $(this).find("#vB_Editor_001_editor").val();
-	console.log(sigtext);
+	//console.log(sigtext);
 	// WORKS
 	
 	// Search that string for any images being rendered.
@@ -64,5 +64,5 @@ $("[name=vbform]").on("submit", function(event)
 // Function to process an image url.
 function CheckImage(imageurl)
 	{
-	console.log(url);
+	console.log(imageurl);
 	}
