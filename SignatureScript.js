@@ -13,7 +13,7 @@ $("[name=vbform]").on("submit", function(event)
 	{
 	console.log("I want you to know that I'm all yours. You and me...we're the same force.");
 	
-	// Don't reload the page.
+	// Don't reload the page until we check the image dimensions.
 	event.preventDefault();
 	
 	// Get the text for the signature being submitted into a string variable.
@@ -81,6 +81,11 @@ function CheckImage(imageurl)
 		else if(width > 500)
 			{
 			$preview.html("<span style=\"color:red;\">Image is wider than 500 pixels. Please find an image 500 pixels or thinner.</span><br>");
+			}
+		// We passed the dimension check so allow the submit button to work again.
+		else
+			{
+			$("[name=vbform]").unbind('submit').submit()	
 			}
 		}
 	img.src = imageurl;
