@@ -73,7 +73,12 @@ function CheckImage(imageurl)
 		var width = img.width;
 
 		console.log("Height: " + height);
-		console.log("Width: " + widtht);
+		console.log("Width: " + width);
+		
+		if(height > 100 || width > 500)
+			{
+			console.log("Image is too large!");
+			}
 		
 		}
 	img.src = imageurl;
