@@ -65,6 +65,7 @@ function CheckImage(imageurl)
 	
 	var img = new Image();
 	
+	
 	img.onload = function()
 		{
 		var height = img.height;
@@ -73,14 +74,15 @@ function CheckImage(imageurl)
 		console.log("Height: " + height);
 		console.log("Width: " + width);
 		
-		// If the images are above MMO-C's allowed dimensions...
-		if(height > 100 || width > 500)
+		// If the images are above MMO-C's allowed dimensions...// Add a message to the Preview saying so.
+		var $preview = $("#yui-gen11");
+		if(height > 100)
 			{
-			console.log("Image is too large!");
-			
-			// Add a message to the Preview saying so.
-			var $preview = $("#yui-gen11");
-			$preview.html("<span style=\"color:red;\">Image dimensions are too large. Please find a smaller image.</span><br>" + $preview.html());
+			$preview.html("<span style=\"color:red;\">Image is taller than 100 pixels. Please find an image 100 pixels or shorter.</span><br>" + $preview.html());
+			}
+		if(width > 500)
+			{
+			$preview.html("<span style=\"color:red;\">Image is wider than 500 pixels. Please find an image 500 pixels or thinner.</span><br>" + $preview.html());
 			}
 		}
 	img.src = imageurl;
