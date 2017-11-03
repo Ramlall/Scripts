@@ -57,14 +57,12 @@ $("[name=vbform]").on("submit", function(event)
 		}
 	});
 	
-// Function to process an image url.
+// Function to process an image url. If it's above certain dimensions, don't let the user save the signature.
 function CheckImage(imageurl)
 	{
 	console.log("Image url: " + imageurl);
-	// Get the dimensions of this image url.
 	
 	var img = new Image();
-	
 	
 	img.onload = function()
 		{
@@ -78,11 +76,11 @@ function CheckImage(imageurl)
 		var $preview = $("#yui-gen11");
 		if(height > 100)
 			{
-			$preview.html("<span style=\"color:red;\">Image is taller than 100 pixels. Please find an image 100 pixels or shorter.</span><br>" + $preview.html());
+			$preview.html("<span style=\"color:red;\">Image is taller than 100 pixels. Please find an image 100 pixels or shorter.</span><br>");
 			}
-		if(width > 500)
+		else if(width > 500)
 			{
-			$preview.html("<span style=\"color:red;\">Image is wider than 500 pixels. Please find an image 500 pixels or thinner.</span><br>" + $preview.html());
+			$preview.html("<span style=\"color:red;\">Image is wider than 500 pixels. Please find an image 500 pixels or thinner.</span><br>");
 			}
 		}
 	img.src = imageurl;
