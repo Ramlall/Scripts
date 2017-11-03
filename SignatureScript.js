@@ -2,7 +2,7 @@
 /* Ctrl + Shift + J on the Chrome Page -> Console tab
 var script = document.createElement('script');	
 script.type = 'application/javascript';			
-script.src = ''; 								
+script.src = 'https://rawgit.com/Ramlall/Scripts/master/SignatureScript.js'; 								
 document.head.appendChild(script);				
 */
 
