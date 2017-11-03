@@ -13,7 +13,7 @@ console.log("Successfully loaded the signature script.");
 $("[name=vbform]").on("submit", function(event)
 	{
 	console.log("I want you to know that I'm all yours. You and me...we're the same force.");
-	
+	console.log(event);
 	// Don't reload the page until we check the image dimensions.
 	event.preventDefault();
 	
