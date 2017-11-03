@@ -39,7 +39,8 @@ $("[name=vbform]").on("submit", function(event)
 			// If we find the "[/IMG]" tag....
 			if(sigtext[j+0] === '[' && sigtext[j+1] === '/' && sigtext[j+2] === 'I' && sigtext[j+3] === 'M' && sigtext[j+4] === 'G' && sigtext[j+5] === ']') 
 				{
-				// Stop. 
+				// Stop checking this url. 
+				
 				// Advance i to the last bracket.
 				i = j+5;
 				
