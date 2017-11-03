@@ -28,7 +28,7 @@ $("[name=vbform]").on("submit", function(event)
 		var nextfive = sigtext[i+0] + sigtext[i+1] + sigtext[i+2] + sigtext[i+3] + sigtext[i+4];
 		
 		// If it's not "[IMG]" then move to the next char.
-		if((nextfive != "[IMG]") || i+5 == sixtext.length) // Extra condition: if a user ends their signature with [IMG] for some reason, there's no url to parse.
+		if((nextfive != "[IMG]") || i+5 == sigtext.length) // Extra condition: if a user ends their signature with [IMG] for some reason, there's no url to parse.
 			{ continue; }
 		
 		// We found an image tag! Reposition i to be the first character after [ in "[IMG]" 
