@@ -82,10 +82,8 @@ function CheckImage(imageurl)
 			
 			// Add a message to the Preview saying so.
 			var $preview = $("#yui-gen11");
-			$preview.html("<span style="color:red;">Image dimensions are too large. Please find a smaller image.</span><br>" + $preview.html());
+			$preview.html("<span style=\"color:red;\">Image dimensions are too large. Please find a smaller image.</span><br>" + $preview.html());
 			}
 		}
 	img.src = imageurl;
-	
-	
 	}
