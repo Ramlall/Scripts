@@ -34,7 +34,7 @@ $("[name=vbform]").on("submit", function(event)
 		// We found an image tag! Reposition i to be the first character of the image url.
 		i = i+5; 
 		var url = "";
-		for(int j = i; j < sigtext.length - 5; j++)
+		for(var j = i; j < sigtext.length - 5; j++)
 			{
 			// If we find the "[/IMG]" tag....
 			if(sigtext[j+0] === '[' && sigtext[j+1] === '/' && sigtext[j+2] === 'I' && sigtext[j+3] === 'M' && sigtext[j+4] === 'G' && sigtext[j+5] === ']') 
