@@ -60,6 +60,23 @@ $("[name=vbform]").on("submit", function(event)
 // Function to process an image url.
 function CheckImage(imageurl)
 	{
-	console.log(imageurl);
-	// Get the dimensions of this image.
+	console.log("Image url: " + imageurl);
+	// Get the dimensions of this image url.
+	
+	var img = new Image();
+
+	var badimage = false;
+	
+	img.onload = function()
+		{
+		var height = img.height;
+		var width = img.width;
+
+		console.log("Height: " + height);
+		console.log("Width: " + widtht);
+		
+		}
+	img.src = imageurl;
+	
+	
 	}
