@@ -23,7 +23,7 @@ $("[name=vbform]").on("submit", function(event)
 	
 	// Search that string for any images being rendered.
 	// Check each char for [IMG]
-	for(var i = 0; i < sigtext.length - 5; i++) // Each character that could be an [ (From "[IMG]").
+	for(let i = 0; i < sigtext.length - 5; i++) // Each character that could be an [ (From "[IMG]").
 		{
 		if(sigtext[i+0] != '[') { continue; }
 		if(sigtext[i+1] != 'I') { continue; }
@@ -34,7 +34,7 @@ $("[name=vbform]").on("submit", function(event)
 		// We found an image tag! Reposition i to be the first character of the image url.
 		i = i+5; 
 		var url = "";
-		for(var j = i; j < sigtext.length - 5; j++)
+		for(let j = i; j < sigtext.length - 5; j++)
 			{
 			// If we find the "[/IMG]" tag....
 			if(sigtext[j+0] === '[' && sigtext[j+1] === '/' && sigtext[j+2] === 'I' && sigtext[j+3] === 'M' && sigtext[j+4] === 'G' && sigtext[j+5] === ']') 
