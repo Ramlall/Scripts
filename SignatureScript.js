@@ -75,11 +75,13 @@ function CheckImage(imageurl)
 		console.log("Height: " + height);
 		console.log("Width: " + width);
 		
+		// If the images are above MMO-C's allowed dimensions...
 		if(height > 100 || width > 500)
 			{
 			console.log("Image is too large!");
+			
+			// Add a message to the user saying so.
 			}
-		
 		}
 	img.src = imageurl;
 	
