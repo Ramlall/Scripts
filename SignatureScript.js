@@ -102,15 +102,14 @@ function CheckImage(imageurl)
 		console.log("Width: " + width);
 		
 		// If the images are above MMO-C's allowed dimensions...Add a message to the Preview saying so.
-		//var $preview = $(".blockfoot");
-		var $preview = $(".blockbody .formcontrols");
+		var $preview = $(".blockfoot");
 		if(height > 100)
 			{
-			$preview.append("<br><span style=\"color:red;\">Image is taller than 100 pixels. Please find an image 100 pixels or shorter.</span><br>");
+			$preview.prepend("<br><span style=\"color:red;\">Image is taller than 100 pixels. Please find an image 100 pixels or shorter.</span><br>");
 			}
 		else if(width > 500)
 			{
-			$preview.append("<br><span style=\"color:red;\">Image is wider than 500 pixels. Please find an image 500 pixels or thinner.</span><br>");
+			$preview.prepend("<br><span style=\"color:red;\">Image is wider than 500 pixels. Please find an image 500 pixels or thinner.</span><br>");
 			}
 		// We passed the dimension check so allow the submit button to work again.
 		else
