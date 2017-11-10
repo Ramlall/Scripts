@@ -11,6 +11,7 @@ console.log("Successfully loaded the signature script.");
 
 /* Create a function for when a user submits for the signature form. */
 // When the "Save Signature" or "Preview" button gets clicked.button gets clicked.
+// $("").hide()
 $("[name=vbform] [accesskey=s]").on("submit", function(event)
 	{
 	console.log("I want you to know that I'm all yours. You and me...we're the same force.");
