@@ -18,12 +18,18 @@ console.log("Successfully loaded the signature script.");
 // The Save Signature button was clicked.
 $('[name=vbform]').on('submit', function(event)
 	{
+	// If the save signature button was not pressed, stop.
+	if(document.activeElement.getAttribute('value') != "Save Signature")
+		{
+		console.log("Preview button was pressed.");
+		return;
+		}
+		
 	// Otherwise, the Save Signature button was pressed.
 	console.log("The Save Signature button was pressed.");
-	console.log("Document button value: " + document.activeElement.getAttribute('value'));
+	
 	// Don't reload the page until we check the image dimensions.
 	event.preventDefault();
-	console.log("Event target: " + event.target);
 	
 	// Get the raw text of the signature being submitted.
 	var sigtext = $("[name=vbform]").find("#vB_Editor_001_editor").val();
