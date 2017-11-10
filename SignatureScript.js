@@ -26,6 +26,7 @@ $('[accesskey=s]').on('click', function(event)
 	
 	// Get the raw text of the signature being submitted.
 	var sigtext = $("[name=vbform]").find("#vB_Editor_001_editor").val();
+	console.log(sigtext);
 	
 	// Search that string for any images being rendered.
 	
