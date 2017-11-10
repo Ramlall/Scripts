@@ -4,7 +4,7 @@
 var script = document.createElement('script');
 script.type = 'application/javascript';	
 script.src = 'https://rawgit.com/Ramlall/Scripts/master/SignatureScript.js';
-document.head.appendChild(script);		
+document.head.appendChild(script);	
 */
 
 console.log("Successfully loaded the signature script.");
@@ -14,7 +14,6 @@ console.log("Successfully loaded the signature script.");
 $("[name=vbform]").on("submit", function(event)
 	{
 	console.log("I want you to know that I'm all yours. You and me...we're the same force.");
-	//console.log(event);
 	// Don't reload the page until we check the image dimensions.
 	event.preventDefault();
 	
