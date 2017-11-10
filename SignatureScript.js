@@ -2,9 +2,9 @@
 // How to test in Chrome's console: https://stackoverflow.com/questions/5282228/include-javascript-file-in-chrome-console
 /* Ctrl + Shift + J on the Chrome Page -> Console tab
 var script = document.createElement('script');
-script.type = 'application/javascript';			
+script.type = 'application/javascript';	
 script.src = 'https://rawgit.com/Ramlall/Scripts/master/SignatureScript.js';
-document.head.appendChild(script);				
+document.head.appendChild(script);		
 */
 
 console.log("Successfully loaded the signature script.");
@@ -14,7 +14,7 @@ console.log("Successfully loaded the signature script.");
 $("[name=vbform]").on("submit", function(event)
 	{
 	console.log("I want you to know that I'm all yours. You and me...we're the same force.");
-	console.log(event);
+	//console.log(event);
 	// Don't reload the page until we check the image dimensions.
 	event.preventDefault();
 	
@@ -33,6 +33,7 @@ $("[name=vbform]").on("submit", function(event)
 	// There are image tags so...
 	else
 		{
+		console.log("Found image tags in the signature.");
 		// Look for "[IMG]" tags
 		for(let i = 0; i < sigtext.length - 5; i++) // Each character that could be an [ (From "[IMG]").
 			{
