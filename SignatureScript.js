@@ -1,6 +1,7 @@
+// Copyright OB3LISK on MMO-Champion.com 2017.
 // How to test in Chrome's console: https://stackoverflow.com/questions/5282228/include-javascript-file-in-chrome-console
 /* Ctrl + Shift + J on the Chrome Page -> Console tab
-var script = document.createElement('script');	
+var script = document.createElement('script');
 script.type = 'application/javascript';			
 script.src = 'https://rawgit.com/Ramlall/Scripts/master/SignatureScript.js';
 document.head.appendChild(script);				
@@ -23,10 +24,11 @@ $("[name=vbform]").on("submit", function(event)
 	// Search that string for any images being rendered.
 	
 	// If there isn't an image tag, don't do anything. 
-	if(sigtext.indexOf("[IMG]") !== -1)
+	if(sigtext.indexOf("[IMG]") === -1)
 		{
+		console.log("Did not find image tags in this signature");
 		// Click the button for the user.
-		$("[name=vbform]").unbind('submit').submit();	
+		$("[name=vbform]").unbind('submit').submit();
 		}
 	// There are image tags so...
 	else
