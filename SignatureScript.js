@@ -2,7 +2,7 @@
 /* Ctrl + Shift + J on the Chrome Page -> Console tab
 var script = document.createElement('script');	
 script.type = 'application/javascript';			
-script.src = 'https://rawgit.com/Ramlall/Scripts/master/SignatureScript.js'; 								
+script.src = 'https://rawgit.com/Ramlall/Scripts/master/SignatureScript.js';
 document.head.appendChild(script);				
 */
 
@@ -21,36 +21,47 @@ $("[name=vbform]").on("submit", function(event)
 	var sigtext = $(this).find("#vB_Editor_001_editor").val();
 	
 	// Search that string for any images being rendered.
-	// Look for "[IMG]" tags
-	for(let i = 0; i < sigtext.length - 5; i++) // Each character that could be an [ (From "[IMG]").
+	
+	// If there isn't an image tag, don't do anything. 
+	if(sigtext.indexOf("[IMG]") !== -1)
 		{
-		// Get this and the next 4 chars.
-		var nextfive = sigtext[i+0] + sigtext[i+1] + sigtext[i+2] + sigtext[i+3] + sigtext[i+4];
-		
-		// If it's not "[IMG]" then move to the next char.
-		if((nextfive != "[IMG]") || i+5 == sigtext.length) // Extra condition: if a user ends their signature with [IMG] for some reason, there's no url to parse.
-			{ continue; }
-		
-		// We found an image tag! Reposition i to be the first character after [ in "[IMG]" 
-		i = i+5;
-		var url = "";	// Hold our url in this string.
-		for(let j = i; j < sigtext.length - 5; j++)	// Check every character after the [IMG] tag until we find [/IMG] or reach the end of the characters.
+		// Click the button for the user.
+		$("[name=vbform]").unbind('submit').submit();	
+		}
+	// There are image tags so...
+	else
+		{
+		// Look for "[IMG]" tags
+		for(let i = 0; i < sigtext.length - 5; i++) // Each character that could be an [ (From "[IMG]").
 			{
-			// If we find the "[/IMG]" tag....
-			if(sigtext[j+0] === '[' && sigtext[j+1] === '/' && sigtext[j+2] === 'I' && sigtext[j+3] === 'M' && sigtext[j+4] === 'G' && sigtext[j+5] === ']') 
-				{
-				// Advance i to to that final bracket in "[/IMG]".
-				i = j+5;
-				
-				// Test the validity of this image's dimensions.
-				CheckImage(url);
-				
-				// Stop checking this url. 
-				break;
-				}
+			// Get this and the next 4 chars.
+			var nextfive = sigtext[i+0] + sigtext[i+1] + sigtext[i+2] + sigtext[i+3] + sigtext[i+4];
 			
-			// This is a valid url char, so add it to the string.
-			url += sigtext[j];
+			// If it's not "[IMG]" then move to the next char.
+			if((nextfive != "[IMG]") || i+5 == sigtext.length) // Extra condition: if a user ends their signature with [IMG] for some reason, there's no url to parse.
+				{ continue; }
+			
+			// We found an image tag! Reposition i to be the first character after [ in "[IMG]" 
+			i = i+5;
+			var url = "";	// Hold our url in this string.
+			for(let j = i; j < sigtext.length - 5; j++)	// Check every character after the [IMG] tag until we find [/IMG] or reach the end of the characters.
+				{
+				// If we find the "[/IMG]" tag....
+				if(sigtext[j+0] === '[' && sigtext[j+1] === '/' && sigtext[j+2] === 'I' && sigtext[j+3] === 'M' && sigtext[j+4] === 'G' && sigtext[j+5] === ']') 
+					{
+					// Advance i to to that final bracket in "[/IMG]".
+					i = j+5;
+					
+					// Test the validity of this image's dimensions.
+					CheckImage(url);
+					
+					// Stop checking this url. 
+					break;
+					}
+				
+				// This is a valid url char, so add it to the string.
+				url += sigtext[j];
+				}
 			}
 		}
 	});
@@ -83,7 +94,7 @@ function CheckImage(imageurl)
 		// We passed the dimension check so allow the submit button to work again.
 		else
 			{
-			$("[name=vbform]").unbind('submit').submit()	
+			$("[name=vbform]").unbind('submit').submit();
 			}
 		}
 	img.src = imageurl;
