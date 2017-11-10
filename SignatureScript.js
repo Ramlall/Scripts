@@ -16,17 +16,17 @@ document.head.appendChild(script);
 console.log("Successfully loaded the signature script.");
 
 // The Save Signature button was clicked.
-$('[accesskey=s]').on('click', function(event)
+$('[name=vbform]').on('submit', function(event)
 	{
 	// Otherwise, the Save Signature button was pressed.
 	console.log("The Save Signature button was pressed.");
-	
+	console.log("Document button value: " + document.activeElement.getAttribute('value'));
 	// Don't reload the page until we check the image dimensions.
 	event.preventDefault();
+	console.log("Event target: " + event.target);
 	
 	// Get the raw text of the signature being submitted.
-	//var sigtext = $("[name=vbform]").find("#vB_Editor_001_editor").val();
-	var sigtext = $("#vB_Editor_001_editor").val();
+	var sigtext = $("[name=vbform]").find("#vB_Editor_001_editor").val();
 	console.log("Signature raw text: " + sigtext);
 	
 	// Search that string for any images being rendered.
