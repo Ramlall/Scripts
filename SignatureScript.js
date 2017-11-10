@@ -25,9 +25,9 @@ $('[accesskey=s]').on('click', function(event)
 	event.preventDefault();
 	
 	// Get the raw text of the signature being submitted.
-	var sigtext = $("[name=vbform]").find("#vB_Editor_001_editor").val( function()
-		{
-		console.log("Signature raw text: " + sigtext);
+	//var sigtext = $("[name=vbform]").find("#vB_Editor_001_editor").val();
+	var sigtext = $("#vB_Editor_001_editor").val();
+	console.log("Signature raw text: " + sigtext);
 	
 	// Search that string for any images being rendered.
 	
@@ -77,8 +77,6 @@ $('[accesskey=s]').on('click', function(event)
 				}
 			}
 		}
-		});
-	
 	});
 	
 // Function to process an image url. If it's above certain dimensions, don't let the user save the signature.
