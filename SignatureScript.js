@@ -105,11 +105,11 @@ function CheckImage(imageurl)
 		var $preview = $("#vB_Editor_001");
 		if(height > 100)
 			{
-			$preview.html($previw.html() + "<span style=\"color:red;\">Image is taller than 100 pixels. Please find an image 100 pixels or shorter.</span><br>");
+			$preview.html($preview.html() + "<span style=\"color:red;\">Image is taller than 100 pixels. Please find an image 100 pixels or shorter.</span><br>");
 			}
 		else if(width > 500)
 			{
-			$preview.html($previw.html() + "<span style=\"color:red;\">Image is wider than 500 pixels. Please find an image 500 pixels or thinner.</span><br>");
+			$preview.html($preview.html() + "<span style=\"color:red;\">Image is wider than 500 pixels. Please find an image 500 pixels or thinner.</span><br>");
 			}
 		// We passed the dimension check so allow the submit button to work again.
 		else
