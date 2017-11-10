@@ -1,6 +1,12 @@
 // Copyright OB3LISK on MMO-Champion.com 2017.
-// How to test in Chrome's console: https://stackoverflow.com/questions/5282228/include-javascript-file-in-chrome-console
-/* Ctrl + Shift + J on the Chrome Page -> Console tab
+
+/* // PURPOSE
+To do an image dimension check on MMO-Champion for any signatures that violate the size rules.
+*/
+
+/* // TESTING INSTRUCTIONS 
+// Resource: How to test in Chrome's console: https://stackoverflow.com/questions/5282228/include-javascript-file-in-chrome-console
+// Ctrl + Shift + J on the Chrome Page -> Console tab
 var script = document.createElement('script');
 script.type = 'application/javascript';	
 script.src = 'https://rawgit.com/Ramlall/Scripts/master/SignatureScript.js';
@@ -9,16 +15,15 @@ document.head.appendChild(script);
 
 console.log("Successfully loaded the signature script.");
 
-/* Create a function for when a user submits for the signature form. */
-// When the "Save Signature" or "Preview" button gets clicked.button gets clicked.
-// $("").hide()
+// When the "Save Signature" button gets clicked.
 $("[name=vbform] [accesskey=s]").on("submit", function(event)
 	{
-	console.log("I want you to know that I'm all yours. You and me...we're the same force.");
+	console.log("The Save Signature button was pressed.");
+	
 	// Don't reload the page until we check the image dimensions.
 	event.preventDefault();
 	
-	// Get the raw text for the signature being submitted.
+	// Get the raw text of the signature being submitted.
 	var sigtext = $(this).find("#vB_Editor_001_editor").val();
 	
 	// Search that string for any images being rendered.
@@ -27,15 +32,17 @@ $("[name=vbform] [accesskey=s]").on("submit", function(event)
 	if(sigtext.indexOf("[IMG]") === -1)
 		{
 		console.log("Did not find image tags in this signature");
-		// Click the button for the user.
+		
+		// Click the button for the user to submit this signature.
 		$("[name=vbform]").unbind('submit').submit();
 		}
 	// There are image tags so...
 	else
 		{
 		console.log("Found image tags in the signature.");
-		// Look for "[IMG]" tags
-		for(let i = 0; i < sigtext.length - 5; i++) // Each character that could be an [ (From "[IMG]").
+		
+		// Look for each image url and pass it to the CheckImage(imageurl)
+		for(let i = 0; i < sigtext.length - 5; i++) // Check each character in the signature text (don't need to check last five, they would be [/IMG]
 			{
 			// Get this and the next 4 chars.
 			var nextfive = sigtext[i+0] + sigtext[i+1] + sigtext[i+2] + sigtext[i+3] + sigtext[i+4];
@@ -49,7 +56,7 @@ $("[name=vbform] [accesskey=s]").on("submit", function(event)
 			var url = "";	// Hold our url in this string.
 			for(let j = i; j < sigtext.length - 5; j++)	// Check every character after the [IMG] tag until we find [/IMG] or reach the end of the characters.
 				{
-				// If we find the "[/IMG]" tag....
+				// If we find the "[/IMG]" tag then stop.
 				if(sigtext[j+0] === '[' && sigtext[j+1] === '/' && sigtext[j+2] === 'I' && sigtext[j+3] === 'M' && sigtext[j+4] === 'G' && sigtext[j+5] === ']') 
 					{
 					// Advance i to to that final bracket in "[/IMG]".
@@ -75,6 +82,7 @@ function CheckImage(imageurl)
 	console.log("Image url: " + imageurl);
 	
 	var img = new Image();
+	img.src = imageurl;
 	
 	img.onload = function()
 		{
@@ -84,7 +92,7 @@ function CheckImage(imageurl)
 		console.log("Height: " + height);
 		console.log("Width: " + width);
 		
-		// If the images are above MMO-C's allowed dimensions...// Add a message to the Preview saying so.
+		// If the images are above MMO-C's allowed dimensions...Add a message to the Preview saying so.
 		var $preview = $("#yui-gen11");
 		if(height > 100)
 			{
@@ -100,5 +108,4 @@ function CheckImage(imageurl)
 			$("[name=vbform]").unbind('submit').submit();
 			}
 		}
-	img.src = imageurl;
 	}
