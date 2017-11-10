@@ -103,7 +103,7 @@ function CheckImage(imageurl)
 		
 		// If the images are above MMO-C's allowed dimensions...Add a message to the Preview saying so.
 		//var $preview = $(".blockfoot");
-		var $preview = $("#vB_Editor_001");
+		var $preview = $(".blockbody .formcontrols");
 		if(height > 100)
 			{
 			$preview.append("<br><span style=\"color:red;\">Image is taller than 100 pixels. Please find an image 100 pixels or shorter.</span><br>");
