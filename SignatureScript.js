@@ -16,7 +16,7 @@ document.head.appendChild(script);
 console.log("Successfully loaded the signature script.");
 
 // When the "Save Signature" button gets clicked.
-$("[name=vbform] [accesskey=s]").on("submit", function(event)
+$("[name=vbform]").on("submit [accesskey=s]", function(event)
 	{
 	console.log("The Save Signature button was pressed.");
 	
